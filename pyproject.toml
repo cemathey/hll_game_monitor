@@ -1,0 +1,40 @@
+[project]
+name = "hll-game-monitor"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "C. Eric Mathey", email = "emathey@protonmail.com" }
+]
+dependencies = [
+    "hll-rcon @ git+https://github.com/cemathey/hll_rcon",
+    "pydantic>=2.9.2",
+    "trio>=0.26.2",
+    "loguru>=0.7.2",
+    "orjson>=3.10.7",
+    "redis[hiredis]>=5.0.8",
+    "click>=8.1.7",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "isort>=5.13.2",
+    "black>=24.8.0",
+    "ipython>=8.27.0",
+    "pytest>=8.3.3",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hll_game_monitor"]
+
+[tool.isort]
+profile = "black"
